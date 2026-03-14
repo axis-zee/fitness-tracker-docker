@@ -1,0 +1,14 @@
+services:
+  fitness-tracker:
+    build: .
+    container_name: fitness-tracker
+    restart: unless-stopped
+    ports:
+      - "${PORT:-4001}:4001"
+    environment:
+      - PORT=4001
+    volumes:
+      - fitness_data:/app/data
+
+volumes:
+  fitness_data:
